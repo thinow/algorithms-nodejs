@@ -1,7 +1,12 @@
 {
   "name": "algorithms-nodejs",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Thierry Nowak <thinow@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "jest"
+  },
+  "dependencies": {
+    "jest": "^20.0.4"
+  }
 }
