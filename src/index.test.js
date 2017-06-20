@@ -1,3 +1,3 @@
-it('Einfach test Jest!', function () {
+it('Einfach test Jest!', () => {
     expect(true).toBe(true);
 });
