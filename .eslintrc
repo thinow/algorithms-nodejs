@@ -1,10 +1,6 @@
 {
   "extends": "airbnb-base",
   "rules": {
-    "no-undef": "off",
-    "indent": [
-      2,
-      4
-    ]
+    "no-undef": "off"
   }
 }
