@@ -2,7 +2,10 @@ const { log2, floor } = Math;
 
 export const findHighestBit = number => floor(log2(number));
 
-export const range = last => Array.from(Array(last + 1).keys());
+export const range = (last, array = []) => {
+  for (let index = 0; index <= last; index += 1) array.push(index);
+  return array;
+};
 
 export const reversedRange = last => range(last).reverse();
 
