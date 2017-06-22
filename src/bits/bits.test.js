@@ -1,6 +1,11 @@
-import { findBits, findHighestBit } from './bits';
+import { findBits, findHighestBit, range, reversedRange } from './bits';
 
 describe('Print bits', () => {
+  describe('Ranges', () => {
+    it('Normal', () => expect(range(3)).toEqual([0, 1, 2, 3]));
+    it('Reversed', () => expect(reversedRange(5)).toEqual([5, 4, 3, 2, 1, 0]));
+  });
+
   describe('Highest bit', () => {
     // firsts
     it('before one', () => expect(findHighestBit(1)).toBe(0));

@@ -1,27 +1,28 @@
 const { log2, floor } = Math;
 
-export const pow2 = power => 2 ** power;
-
 export const findHighestBit = number => floor(log2(number));
 
+export const range = last => Array.from(Array(last + 1).keys());
+
+export const reversedRange = last => range(last).reverse();
+
+const pow2 = power => 2 ** power;
+
 export const findBits = (number) => {
-  let bit = findHighestBit(number);
-  let rest = number;
+  if (number === 0) return [];
 
-  const result = [];
+  const availableBits = reversedRange(findHighestBit(number));
 
-  while (bit >= 0) {
+  const reduced = availableBits.reduce((accumulator, bit) => {
     const decimal = pow2(bit);
 
-    if (decimal <= rest) {
-      result.unshift(bit);
-      rest -= decimal;
-    }
+    if (decimal > accumulator.rest) return accumulator;
 
-    bit -= 1;
-  }
+    const { rest, bits } = accumulator;
+    return { rest: rest - decimal, bits: [bit, ...bits] };
+  }, { rest: number, bits: [] });
 
-  return result;
+  return reduced.bits;
 };
 
 export default {};
