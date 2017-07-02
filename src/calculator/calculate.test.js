@@ -1,8 +1,9 @@
 import calculate from './calculate';
 
 describe('Calculator', () => {
-  it('Undefined', () => expect(() => calculate(undefined)).toThrow());
-  it('Empty', () => expect(() => calculate([])).toThrow());
+  it('One digit', () => expect(calculate(['1'])).toBe(1));
 
-  it('One digit', () => expect(calculate([1])).toBe(1));
+  it('Simple addition', () => expect(calculate(['1', '+', '2'])).toBe(3));
+
+  it('2 additions', () => expect(calculate(['1', '+', '2', '+', '3'])).toBe(6));
 });

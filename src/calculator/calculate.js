@@ -1,8 +1,12 @@
-import assert from 'assert';
+const radix = 10;
 
-export default (array) => {
-  assert.ok(array);
-  assert.ok(array.length !== 0);
+const int = left => parseInt(left, radix);
 
-  return array[0];
+const calculate = ([left, operator, right, ...rest]) => {
+  if (!operator) return int(left);
+
+  const computed = int(left) + int(right);
+  return calculate([computed, ...rest]);
 };
+
+export default calculate;
