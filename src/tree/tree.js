@@ -10,4 +10,16 @@ const arrayOf = ({ value, left, right } = {}) => {
 
 export const stringify = tree => arrayOf(tree).join(',');
 
-export default { stringify };
+export const insert = (value, tree = {}) => {
+  if (tree.value === undefined) return { value };
+
+  if (value < tree.value) {
+    return { ...tree, left: insert(value, tree.left) };
+  }
+
+  return { ...tree, right: insert(value, tree.right) };
+};
+
+export const sort = () => ({});
+
+export default { sort, insert, stringify };
