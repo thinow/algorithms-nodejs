@@ -25,13 +25,8 @@ export const insert = (value, tree = {}) => {
 export const sort = ({ value, left, right } = {}, accumulator = {}) => {
   if (value === undefined) return accumulator;
 
-  let newTree = accumulator;
-
-  newTree = insert(value, newTree);
-  newTree = sort(left, newTree);
-  newTree = sort(right, newTree);
-
-  return newTree;
+  const tree = insert(value, accumulator);
+  return sort(right, sort(left, tree));
 };
 
 export default { sort, insert, stringify };
